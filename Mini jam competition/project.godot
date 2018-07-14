@@ -11,14 +11,15 @@ config_version=3
 [application]
 
 config/name="Mini jam competition"
-run/main_scene="res://Levels/level_1.tscn"
+run/main_scene="res://World/World 1.tscn"
 config/icon="res://icon.png"
 
 [display]
 
 window/size/width=1080
 window/size/height=720
-window/stretch/aspect="expand"
+window/size/resizable=false
+window/stretch/aspect="keep"
 
 [rendering]
 
