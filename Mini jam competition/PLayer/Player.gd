@@ -3,10 +3,11 @@ extends RigidBody2D
 var movement = Vector2()
 var jump = false
 var jump_anim = false
+var jump_pos = 0
 const MAX_JUMP_HEIGHT = -5000
 const MAX_SPEED = 1000
-const JUMP_SPEED_UP = -400
-const JUMP_SPEED_DOWN = -600
+const JUMP_SPEED_UP = -800
+const JUMP_SPEED_DOWN = -400
 const UP = Vector2(0, -1)
 const ACCELERATION = 100
 
@@ -23,6 +24,7 @@ func _on_floor_detected(body):
 	if (body.get_name() == "Floor"):
 		print((self.get_name()) + ' is hitting ' + (body.get_name()))
 		jump = true
+		set_gravity_scale(2)
 	elif (collisions_2 != "Floor"):
 		jump = false
 
@@ -34,14 +36,17 @@ func get_inputs():
 			movement.x += ACCELERATION
 		elif movement.x > MAX_SPEED:
 			movement.x = MAX_SPEED
+		
 	elif Input.is_key_pressed(KEY_F):
 		if movement.x > MAX_SPEED:
 			movement.x -= ACCELERATION
 		elif movement.x < MAX_SPEED:
 			movement.x = -MAX_SPEED
+		
 	elif Input.is_key_pressed(KEY_T):
 		if jump == true:
 			jump_anim = true
+	
 	else:
 		movement.x = 0
 		
@@ -56,13 +61,17 @@ func get_inputs():
 	
 	if jump == false:
 		print('going down!')
-		movement.y -= JUMP_SPEED_DOWN * 2
-		set_mass(20)
-			
+		movement.y -= JUMP_SPEED_DOWN * 6
+	
 	if movement.y > 0:
 		movement.y = 0
 		set_mass(1)
+		jump = null
 		
+	if movement.y < 0 and jump == false:
+		set_gravity_scale(8)
+		print('oof')
+	
 func _process(delta):
 	get_inputs()
 	
