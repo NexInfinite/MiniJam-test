@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://PLayer/0.tscn" type="PackedScene" id=1]
+[ext_resource path="res://OpenArt/characters.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 9.0
+height = 7.0
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+
+position = Vector2( 16.2717, 19.9522 )
+shape = SubResource( 1 )
+
+[node name="0" type="Sprite" parent="." index="1" instance=ExtResource( 1 )]
+
+texture = ExtResource( 2 )
+centered = false
+vframes = 4
+hframes = 23
+frame = 47
+region_rect = Rect2( 96, 64, 32, 32 )
+_sections_unfolded = [ "Animation" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+

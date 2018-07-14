@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="Mini jam competition"
-run/main_scene="res://World/World 1.tscn"
+run/main_scene="res://World/World.tscn"
 config/icon="res://icon.png"
 
 [display]
@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 window/size/width=1080
 window/size/height=720
 window/size/resizable=false
+window/size/fullscreen=true
 window/stretch/aspect="keep"
 
 [rendering]
