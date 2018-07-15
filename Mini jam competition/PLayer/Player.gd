@@ -12,11 +12,11 @@ func _physics_process(delta):
 	motion.y += GRAVITY
 	var friction = false
 	
-	if Input.is_key_pressed(KEY_M):
+	if Input.is_key_pressed(KEY_V):
 		motion.x = min(motion.x+ACCELERATION, MAX_SPEED)
 		run = true
 		$Sprite2.flip_h = false
-	elif Input.is_key_pressed(KEY_Z):
+	elif Input.is_key_pressed(KEY_C):
 		motion.x = max(motion.x-ACCELERATION, -MAX_SPEED)
 		run = true
 		$Sprite2.flip_h = true
@@ -41,11 +41,9 @@ func _physics_process(delta):
 	else:
 		if friction == true:
 			motion.x = lerp(motion.x, 0, 0.2)
-	
+			
 	motion = move_and_slide(motion, UP)
 	pass
-
-
 
 func _on_Area2D_body_entered(body):
 	pass 
