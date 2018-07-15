@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Background/parallax_mountain_pack/layers/parallax-mountain-bg.png" type="Texture" id=1]
 
-[node name="ParallaxBackground" type="ParallaxBackground"]
+[node name="ParallaxBackground" type="ParallaxBackground" index="0"]
 
 layer = -1
 offset = Vector2( 0, 0 )

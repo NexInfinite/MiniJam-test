@@ -15,18 +15,18 @@ func shake_camera():
 	
 func _physics_process(delta):
 	camera_postition = $"PLayer - Green guy/Camera2D".get_camera_position()
-	#red_boss_position = $"Read boss".get_global_position()
-	#if red_boss_position.y - camera_postition.y <= 300:
-		#if zoom_x > 0.5:
-			#zoom_x -= 0.01
-			#zoom_y -= 0.01
-			#shake_camera()
-		#else:
-			#shake_camera()
-	#else:
-		#if zoom_x < 0.5 and zoom_y < 0.5:
-			#zoom_x += 0.01
-			#zoom_y += 0.01
-			#shake_camera()
+	red_boss_position = $"Read boss".get_global_position()
+	if red_boss_position.y - camera_postition.y <= 380:
+		if zoom_x > 0.4:
+			zoom_x -= 0.005
+			zoom_y -= 0.005
+			shake_camera()
+		else:
+			shake_camera()
+	else:
+		if zoom_x < 0.7 and zoom_y < 0.7:
+			zoom_x += 0.02
+			zoom_y += 0.02
+			shake_camera()
 	
 	pass
