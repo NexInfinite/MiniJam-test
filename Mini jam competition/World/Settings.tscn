@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Background/Backgound.png" type="Texture" id=1]
+[ext_resource path="res://font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Fullscreen.gd" type="Script" id=3]
+
+[node name="Settings" type="Node" index="0"]
+
+[node name="Backgound" type="Sprite" parent="." index="0"]
+
+modulate = Color( 0.21875, 0.195679, 0.195679, 1 )
+position = Vector2( 512, 384 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Settings" type="Label" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 384.0
+margin_top = 32.0
+margin_right = 699.0
+margin_bottom = 104.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "Settings:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="Fullscreen" type="Node" parent="." index="2"]
+
+script = ExtResource( 3 )
+
+[node name="CheckBox" type="CheckBox" parent="Fullscreen" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 128.0
+margin_right = 96.0
+margin_bottom = 168.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = true
+pressed = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Fullscreen"
+flat = false
+align = 0
+_sections_unfolded = [ "Rect" ]
+
+[connection signal="button_down" from="Fullscreen/CheckBox" to="Fullscreen" method="_on_CheckBox_button_down"]
+
+

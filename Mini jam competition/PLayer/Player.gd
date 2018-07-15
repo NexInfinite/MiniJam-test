@@ -11,10 +11,10 @@ func _physics_process(delta):
 	motion.y += GRAVITY
 	var friction = false
 	
-	if Input.is_key_pressed(KEY_D):
+	if Input.is_key_pressed(KEY_M):
 		motion.x = min(motion.x+ACCELERATION, MAX_SPEED)
 		$Sprite.flip_h = false
-	elif Input.is_key_pressed(KEY_A):
+	elif Input.is_key_pressed(KEY_Z):
 		motion.x = max(motion.x-ACCELERATION, -MAX_SPEED)
 		$Sprite.flip_h = true
 	else:

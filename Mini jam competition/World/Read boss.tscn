@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://World/Red boss.gd" type="Script" id=1]
+[ext_resource path="res://Background/Untitled-1.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 640, 256 )
+
+[node name="Read boss" type="Area2D"]
+
+position = Vector2( 576, 992 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+speed = null
+death = "res://World/Death.tscn"
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+position = Vector2( -32, 31.9999 )
+scale = Vector2( 0.633333, 0.474074 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( -32, 32 )
+shape = SubResource( 1 )
+
+
