@@ -1,18 +1,22 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://OpenArt/Tiles/Blocks 1 - Tilemap.tres" type="TileSet" id=1]
-[ext_resource path="res://World/Blocks.gd" type="Script" id=2]
-[ext_resource path="res://PLayer/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://World/Area2D.tscn" type="PackedScene" id=4]
-[ext_resource path="res://World/Read boss.tscn" type="PackedScene" id=5]
+[ext_resource path="res://World/Read boss.tscn" type="PackedScene" id=1]
+[ext_resource path="res://OpenArt/Tiles/Blocks 1 - Tilemap.tres" type="TileSet" id=2]
+[ext_resource path="res://World/Blocks.gd" type="Script" id=3]
+[ext_resource path="res://PLayer/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://World/Area2D.tscn" type="PackedScene" id=5]
 
 [node name="World" type="Node"]
 
-[node name="Blocks" type="TileMap" parent="." index="0"]
+[node name="Read boss" parent="." index="0" instance=ExtResource( 1 )]
+
+speed = 0.2
+
+[node name="Blocks" type="TileMap" parent="." index="1"]
 
 scale = Vector2( 4, 4 )
 mode = 0
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 1
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -28,22 +32,18 @@ collision_mask = 1
 occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( -131073, 4, 0, -196608, 4, 0, -196607, 4, 0, -196606, 4, 0, -196605, 4, 0, -196604, 4, 0, -196603, 4, 0, -196602, 4, 0, -196601, 4, 0, -196600, 4, 0, -196599, 4, 0, -196598, 4, 0, -196597, 4, 0, -196596, 4, 0, -196595, 4, 0, -196594, 4, 0, -196593, 4, 0, -196592, 4, 0, -196591, 4, 0, -65537, 4, 0, -131055, 4, 0, -1, 4, 0, -65519, 4, 0, 65535, 4, 0, 17, 4, 0, 131071, 4, 0, 65543, 1, 0, 65544, 1, 0, 65545, 1, 0, 65546, 1, 0, 65547, 1, 0, 65548, 1, 0, 65549, 1, 0, 65550, 1, 0, 65551, 1, 0, 65552, 1, 0, 65553, 4, 0, 196607, 4, 0, 131075, 1, 0, 131076, 1, 0, 131089, 4, 0, 262143, 4, 0, 196625, 4, 0, 327679, 4, 0, 262144, 1, 0, 262145, 1, 0, 262161, 4, 0, 393215, 4, 0, 327697, 4, 0, 458751, 4, 0, 393219, 1, 0, 393220, 1, 0, 393233, 4, 0, 524287, 4, 0, 458769, 4, 0, 589823, 4, 0, 524288, 1, 0, 524289, 1, 0, 524305, 4, 0, 655359, 4, 0, 589841, 4, 0, 720895, 4, 0, 655360, 1, 0, 655361, 1, 0, 655362, 1, 0, 655363, 1, 0, 655364, 1, 0, 655365, 1, 0, 655366, 1, 0, 655367, 1, 0, 655368, 1, 0, 655369, 1, 0, 655370, 1, 0, 655371, 1, 0, 655372, 1, 0, 655373, 1, 0, 655374, 1, 0, 655375, 1, 0, 655376, 1, 0, 655377, 4, 0, 786431, 4, 0, 720896, 4, 0, 720897, 4, 0, 720898, 4, 0, 720899, 4, 0, 720900, 4, 0, 720901, 4, 0, 720902, 4, 0, 720903, 4, 0, 720904, 4, 0, 720905, 4, 0, 720906, 4, 0, 720907, 4, 0, 720908, 4, 0, 720909, 4, 0, 720910, 4, 0, 720911, 4, 0, 720912, 4, 0, 720913, 4, 0 )
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 _sections_unfolded = [ "Cell", "Transform" ]
 
-[node name="PLayer - Green guy" parent="." index="1" instance=ExtResource( 3 )]
+[node name="PLayer - Green guy" parent="." index="2" instance=ExtResource( 4 )]
 
 position = Vector2( 512, 576 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Finish" parent="." index="2" instance=ExtResource( 4 )]
+[node name="Finish" parent="." index="3" instance=ExtResource( 5 )]
 
 position = Vector2( 1056, 32 )
 scale = Vector2( 1, 1 )
 next_world = "res://World/World 2.tscn"
-
-[node name="Read boss" parent="." index="3" instance=ExtResource( 5 )]
-
-speed = 0.2
 
 

@@ -6,6 +6,7 @@ const MAX_SPEED = 300
 const ACCELERATION = 50
 const JUMP_HEIGHT = -800
 var motion = Vector2()
+var run = false
 
 func _physics_process(delta):
 	motion.y += GRAVITY
@@ -13,12 +14,24 @@ func _physics_process(delta):
 	
 	if Input.is_key_pressed(KEY_M):
 		motion.x = min(motion.x+ACCELERATION, MAX_SPEED)
-		$Sprite.flip_h = false
+		run = true
+		$Sprite2.flip_h = false
 	elif Input.is_key_pressed(KEY_Z):
 		motion.x = max(motion.x-ACCELERATION, -MAX_SPEED)
-		$Sprite.flip_h = true
+		run = true
+		$Sprite2.flip_h = true
 	else:
 		friction = true
+		run = false
+		
+	if run == true:
+		if $Sprite2/AnimationPlayer.current_animation == "":
+			$Sprite2/AnimationPlayer.play("New Anim")
+			print('run')
+	else:
+		if $Sprite2/AnimationPlayer.current_animation == "New Anim" and $Sprite2/AnimationPlayer.current_animation != "Idle":
+			$Sprite2/AnimationPlayer.play("Idle")
+			print('stop')
 	
 	if is_on_floor():
 		if Input.is_key_pressed(KEY_SPACE):
